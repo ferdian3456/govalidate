@@ -10,8 +10,8 @@ import (
 type User struct {
 	Username    string `validate:"required|minLen:3" json:"username"` // if you wanted to print in lowercase
 	Email       string `validate:"required|email|maxLen:20"`
-	Gender      string `validate:"in:Male,Female"`
-	Description string `validate:"minLen:10"`
+	Gender      string `validate:"required|in:Male,Female"`
+	Description string `validate:"minLen:10"` // optional field
 	Age         int    `validate:"required|min:18"`
 }
 
@@ -25,7 +25,7 @@ func main() {
 	user := User{
 		Username:    "a",
 		Email:       "",
-		Gender:      "Mal",
+		Gender:      "",
 		Description: "",
 		Age:         17,
 	}
